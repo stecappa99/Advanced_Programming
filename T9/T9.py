@@ -25,7 +25,7 @@ def import_dictionary(filename):
 def translate(line, dict):
     words = re.findall("\\d+", line)
     new = list(map(lambda x: [t_i for t in get_translations(get_letters(x), "") for t_i in t if t_i in dict[len(x)]], words))
-    print(new)
+    print(*new, sep="\n")
     translated = get_translations(new, " ")
     print(*translated, sep="\n")
 
@@ -43,8 +43,8 @@ def get_translations(ls, sep):
 
 
 if __name__ == "__main__":
-    d = import_dictionary("T9/dictionary.txt")
-    with open("T9/t9_texts.txt") as f:
+    d = import_dictionary("dictionary.txt")
+    with open("t9_texts.txt") as f:
          ls = f.readlines()
 
     for i in ls:
