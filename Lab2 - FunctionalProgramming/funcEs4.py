@@ -12,19 +12,27 @@ from itertools import combinations, chain
 
 
 def prime_number(n):
-    return len([x for x in range(2, int(n / 2)) if n % x == 0]) == 0
+    for div in range(2, int((n ** .5) + 1)):
+        if not n % div:
+            return False
+    return True
 
 
 def gen_sexy_pair(start):
     n = start
+    current = n
+    prec = n
     while True:
-        if prime_number(n) and prime_number(n + 6):
-            yield n, n + 6
+        if current == n and prec == n - 6:
+            yield n - 6, n
         n = n + 1
+        if prime_number(n):
+            prec = current
+            current = n
 
 
 def gen_triple_sexy():
-    sexy_pair = gen_sexy_pair(0)
+    sexy_pair = gen_sexy_pair(55000000)
     ls = [next(sexy_pair), next(sexy_pair), next(sexy_pair)]
     while True:
         if ls[0][1] == ls[1][0] and ls[1][1] == ls[2][0]:
@@ -38,10 +46,11 @@ def power_set(ls):
 
 
 def pratical_number(n):
-    div = [x for x in range(1, n+1) if n % x == 0]
-    sub_div = power_set(div)
-    sub_div = list(map(lambda x: sum(x), sub_div))
-    return n == len({x for x in range(1, n + 1) if x in sub_div})
+    return 2 * n <= sum([i for i in range(2, int((n ** .5) + 1)) if n % i == 0], 1+n)
+    # div = [x for x in range(1, n+1) if n % x == 0]
+    # sub_div = power_set(div)
+    # sub_div = list(map(lambda x: sum(x), sub_div))
+    # return n == len({x for x in range(1, n + 1) if x in sub_div})
 
 
 if __name__ == "__main__":
@@ -49,7 +58,9 @@ if __name__ == "__main__":
     eng_par = list()
     while len(eng_par) < 4:
         ls = next(triple)
-        n = ls[0][0] - 9
+        print(ls)
+        n = ls[0][0] + 9
         if len([x for x in range(-8, +9, 4) if pratical_number(n+x)]) == 5:
             eng_par.append(n)
+            print(eng_par)
     print(sum(eng_par))
