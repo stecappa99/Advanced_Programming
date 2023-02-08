@@ -1,0 +1,1 @@
+<__main__.MyMath object at 0x101f33110>1
