@@ -1,3 +1,4 @@
+import re
 
 morse_list = ["._", "_...", "_._.", "_..",
               ".", ".._.", "__.", "....",
@@ -7,6 +8,8 @@ morse_list = ["._", "_...", "_._.", "_..",
               ".._", "..._", ".__", "_.._",
               "_.__", "__.."]
 
+
+regex_morse_list = r"(u|\s)?((?P<A>\._)|(?P<E>\.))(u|\s)?"
 
 class Node:
     def __init__(self, morse_value, value):
