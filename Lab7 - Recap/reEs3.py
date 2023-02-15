@@ -29,10 +29,14 @@ class Matrix:
         if isinstance(other, int):
             return Matrix([[i * other for i in j] for j in self._list_of_list])
         elif isinstance(other, Matrix):
-            return Matrix([[i * other for i in j] for j in self._list_of_list])
+            assert self.get_row_num() == other.get_col_num() and self.get_col_num() == other.get_row_num(), "Matrici non compatibili"
+            return Matrix([[self._list_of_list[i][j] * other._list_of_list[j][i] for i in range(self.get_row_num())] for j in range(self.get_col_num())])
 
     def transposition(self):
         return Matrix([[self._list_of_list[i][j] for i in range(self.get_row_num())] for j in range(self.get_col_num())])
+
+    def norm(self):
+        return max([sum(x) for x in self.transposition()._list_of_list])
 
     def __str__(self):
         s = ""
@@ -49,4 +53,6 @@ if __name__ == "__main__":
     print(m1 == m2)
     print(m1 + m2)
     print(m1 * 3)
+    print(m1 * m2.transposition())
     print(m1.transposition())
+    print(m1.norm())
