@@ -13,10 +13,9 @@ _words_dict = _build_words_dictionary()
 
 
 def anagram(word):
-    return reduce(lambda x, y: x.strip() + ", " + y.strip(), filter(lambda x: x != word, _words_dict[gen_key(word)]))
+    return reduce(lambda x, y: x.strip() + ", " + y.strip(), filter(lambda x: x.strip() != word, _words_dict[gen_key(word)]))
 
 
 def anagrams():
-    print(_words_dict)
-    return reduce(lambda x, y: x + "\n" + y, [val[0] + ":-" + anagram(val[0]) for _, val in _words_dict])
+    return reduce(lambda x, y: x + "\n" + y, [val[0].strip() + "\t\t:- " + anagram(val[0].strip()) for val in _words_dict.values()])
 
