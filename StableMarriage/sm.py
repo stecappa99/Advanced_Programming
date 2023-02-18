@@ -11,10 +11,12 @@ def sm(guy_pref: dict, gal_pref: dict):
             gal = guy_pref[g].pop(0)
             gal, i = gal, gal_pref[gal].index(g)
             if gal not in couples:
-                print("Couple")
+                print(f"Couple created {gal} & {g}")
                 couples[gal] = (i, g)
             elif couples[gal][0] > i:
+                print(f"Couple broke {gal} & {couples[gal][1]}")
                 gs.append(couples[gal][1])
+                print(f"Couple created {gal} & {g}")
                 couples[gal] = (i, g)
             else:
                 gs.append(g)
