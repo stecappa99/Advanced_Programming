@@ -13,7 +13,7 @@ def sm(guy_pref, gal_pref):
             if gal not in couples:
                 print(f"Couple created {gal} & {g}")
                 couples[gal] = (i, g)
-            elif couples[gal][0] > i:
+            elif check_couple(gal_pref[gal], couples[gal], g):
                 print(f"Couple broke {gal} & {couples[gal][1]}")
                 gs.append(couples[gal][1])
                 print(f"Couple created {gal} & {g}")
@@ -21,5 +21,7 @@ def sm(guy_pref, gal_pref):
             else:
                 gs.append(g)
             return find_couples(gs)
+        
+    def check_couple(gal_ls, 
 
     return [(k, v[1]) for k, v in find_couples([k for k in guy_pref.keys()]).items()]
