@@ -29,4 +29,4 @@ def sm(guy_pref, gal_pref):
         else:
             return check_couple(gal_ls[1:], prec, current)
 
-    return [(k, v[1]) for k, v in find_couples([k for k in guy_pref.keys()]).items()]
+    return [(k, v) for k, v in find_couples([k for k in guy_pref.keys()]).items()]
