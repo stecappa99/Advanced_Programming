@@ -82,7 +82,7 @@ guyprefers = {
     'ian': ['lin', 'isa', 'dee', 'may', 'bea', 'abi', 'fay', 'ivy', 'lin', 'may'],
     'ike': ['jan', 'dee', 'bea', 'isa', 'fay', 'eve', 'abi', 'ivy', 'lin', 'may'],
     'jon': ['abi', 'fay', 'jan', 'may', 'eve', 'bea', 'dee', 'isa', 'ivy', 'lin'],
-    'joy': ['bea', 'abi', 'dee', 'may', 'eve', 'ivy', 'isa', 'jan', 'lin', 'fay'],
+    'joy': ['bea', 'abi', 'dee', 'may', 'eve', 'ivy', 'isa', 'jan', 'lin', 'fay']
 }
 
 galprefers = {
@@ -95,7 +95,7 @@ galprefers = {
     'may': ['jon', 'gav', 'hal', 'joy', 'bob', 'abe', 'col', 'ike', 'dan', 'ian'],
     'lin': ['gav', 'jon', 'bob', 'abe', 'ian', 'dan', 'hal', 'ike', 'col', 'joy'],
     'ivy': ['ian', 'col', 'hal', 'gav', 'joy', 'bob', 'abe', 'ike', 'jon', 'dan'],
-    'jan': ['ike', 'hal', 'gav', 'abe', 'bob', 'jon', 'col', 'ian', 'joy', 'dan'],
+    'jan': ['ike', 'hal', 'gav', 'abe', 'bob', 'jon', 'col', 'ian', 'joy', 'dan']
 }
 
 if __name__ == "__main__":
