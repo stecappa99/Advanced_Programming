@@ -14,11 +14,11 @@ def sm(guy_pref, gal_pref):
                 couples[gal] = g
             elif sup[gal][g] < sup[gal][couples[gal]]:
                 print(f"Couple broke {gal} & {couples[gal]}")
-                gs.insert(couples[gal], 0)
+                gs.insert(0, couples[gal])
                 print(f"Couple created {gal} & {g}")
                 couples[gal] = g
             else:
-                gs.insert(g, 0)
+                gs.insert(0, g)
             return find_couples(gs)
         
     return [(k, v) for k, v in find_couples([k for k in guy_pref.keys()]).items()]
