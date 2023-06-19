@@ -2,7 +2,8 @@
 
 def sm(guy_pref, gal_pref):
     couples = {}
-    sup = {k : {v[i]: i for i in range(len(v))} for k, v in gal_pref.items()}
+    sup = {k: {v[i]: i for i in range(len(v))} for k, v in gal_pref.items()}
+
     def find_couples(gs):
         if not len(gs):
             return couples
