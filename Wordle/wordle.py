@@ -46,10 +46,10 @@ def wordle(guess, wordle, dictionary):
                 colored[i] = colors[color] + g[i]
 
             guesses.append(''.join(colored))
-            next_words = [d[index] for index in range(len(d))
-                          if all([d[index][k] in p_i[k] for k in range(len(p_i))])
+            next_words = [d_i for d_i in d
+                          if all([d_i[k] in p_i[k] for k in range(len(d_i))])
                           and
-                          len({d[index][k] for k in range(len(d[index]))}.intersection(yellow_chars)) >= len(yellow_chars)]
+                          len({d_i[k] for k in range(len(d_i))}.intersection(yellow_chars)) >= len(yellow_chars)]
             #print(next_words)
             return play(next_words[0], p_i, next_words)
 
