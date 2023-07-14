@@ -6,11 +6,12 @@ class Stack:
 
     def pop(self):
         self.__top__ -= 1
-        return self.__container__(self.__top__)
+        return self.__container__[self.__top__]
 
     def push(self, e):
         self.__top__ += 1
         self.__container__[self.__top__ - 1] = e
 
     def __str__(self):
-        return "Tуре :- " + type(self).__name__
+        return "\nTуре :- " + type(self).__name__ + ",\t\t\t" + str(self.__top__) +" / " +\
+            str(self.__size__) + "\t\t\tcontainer :- [" + ", ".join(map(str, self.__container__[:self.__top__])) + "]"
