@@ -10,23 +10,21 @@ def build_animals():
         ams[k] = build_list([k], support)
     return ams
 
-
-def build_list(animal, d):
-    c = get_last(animal)
-    dl = [x for x in d[c] if x not in animal]
-    if len(dl) == 0:
-        return []
-    else:
-        sl = [animal.copy() for _ in range(len(dl))] if len(dl) > 1 else [animal]
-        res = []
-        for i in range(len(dl)):
-            sl[i].append(dl[i])
-            x = build_list(sl[i], d)
-            for j in x:
-                sl[i].extend()
-                print(x)
-
-        return sl
+def wrapper(animal, d):
+    res = []
+    def build_list(animal, d):
+        c = get_last(animal)
+        dl = [x for x in d[c] if x not in animal]
+        if len(dl) == 0:
+            res.append(animal)
+        else:
+            sl = [animal.copy() for _ in range(len(dl))] if len(dl) > 1 else [animal]
+            res = []
+            for i in range(len(dl)):
+                sl[i].append(dl[i])
+                x = build_list(sl[i], d)
+    buil_list(animal, d)
+    return res
 
 
 animals = build_animals()
